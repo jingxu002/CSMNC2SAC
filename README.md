@@ -8,3 +8,5 @@ create head and data segment of SAC file
 ua0001.dat --  a CSMNC file as an example
 tmpOut.dat --  an ascii SAC file, 
 to read in SAC, use the command 'r alpha tmpOut.dat' 
+## Acknowledgements
+Data for this study are provided by China Strong Motion Network Centre at Institute of Engineering Mechanics, China Earthquake Administration
