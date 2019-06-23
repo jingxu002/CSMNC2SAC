@@ -25,11 +25,30 @@ class SAC:
         
     def set_kstnm(self, stnm):
         self.kstnm = stnm
+        
+    def set_dep(self, deptyp):
+        # set dependent type
+        self.idep = deptyp
+    
+    def set_magtyp(self, magtyp):
+        # magnitude type
+        self.imagtyp = magtyp
             
     def set_kinst(self, inst):
         # instrument
         self.kinst = inst
-            
+    
+    def set_ot(self, nzyear, nzjday, nzhour, nzmin, nzsec, nzmsec):
+        self.nzyear = nzyear
+        self.nzjday = nzjday
+        self.nzhour = nzhour
+        self.nzmin = nzmin
+        self.nzsec = nzsec
+        self.nzmsec = nzmsec
+    
+    def set_ovrok(self, ovrok):
+        self.lovrok = ovrok
+        
     def set_evla(self, evla):
         self.evla = evla
         

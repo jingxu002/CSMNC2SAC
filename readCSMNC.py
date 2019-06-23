@@ -1,3 +1,6 @@
+from ymd2jday import ymd2jday
+import numpy as np
+from sac import SAC
 def readCSMNC(fileName):
     # open files
     fn = open(fileName, 'r')
@@ -46,6 +49,12 @@ def readCSMNC(fileName):
         raise ValueError('wrong component direction', cmpNm)
     # event name
     evnm = tmp2[5]
+    # origin time
+    ot = str(2) + tmp2[1]
+    nzyear = int(ot[0:5]); mon = int(ot[4:6]); day = int(ot[6:8])
+    nzhour = int(ot[8:10]); nzmin = int(ot[10:12]); nzsec = int(ot[12:])
+    nzjday = ymd2jday(nzyear, mon, day)
+    nzmsec = 0
     # event latitude
     evla = float(tmp2[9][0:6])
     # event longitude
@@ -66,6 +75,10 @@ def readCSMNC(fileName):
     # create null SAC object
     head = SAC()
     # set head variables
+    head.set_ot(nzyear, nzjday, nzhour, nzmin, nzsec, nzmsec)
+    head.set_magtyp(53)
+    head.set_dep(8)
+    head.set_ovrok(1)
     head.set_cmp(cmpaz, cmpinc)
     head.set_evdp(evdp)
     head.set_evla(evla)
