@@ -15,11 +15,7 @@ to read in SAC, use the command 'r alpha tmpOut.dat'
 ## Example
 "file transfer procedure commands in IPython"
 
-from sac import SAC
-
-import numpy as np
-
-from readCSMNC import readCSMNC
+from readCSMNC import * 
 
 head, data = readCSMNC('ua0001.dat')
 
