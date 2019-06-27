@@ -9,8 +9,8 @@ class SAC:
         _sacIntNull = -12345
         _sacStrNull = '-12345  '
         # real number
-        self.delta, self.depmin, self.depmax, self.scale, self.odelta,self.b, self.e, self.o, self.a, self.internal1, self.t0, self.t1, self.t2, self.t3, self.t4, self.t5, self.t6, self.t7, self.t8, self.t9, self.f, self.resp0, self.resp1, self.resp2, self.resp3, self.resp4, self.resp5, self.resp6, self.resp7, self.resp8, self.resp9, self.stla, self.stlo, self.stel, self.stdp, self.evla, self.evlo, self.evel, self.evdp, self.mag, self.user0, self.user1, self.user2, self.user3, self.user4, self.user5, self.user6, self.user7, self.user8, self.user9, self.dist, self.az, self.baz, self.gcarc, self.internal2, self.internal3, self.depmen, self.cmpaz, self.cmpinc, self.xminimum, self.xmaximum, self.yminimum, self.ymaximum, self.unused1, self.unused2, self.unused3, self.unused4, self.unused5, self.unused6, self.unused7 = _sacRealNull * np.ones((70, ), dtype = float)
-        self.nzyear, self.nzjday, self.nzhour, self.nzmin, self.nzsec, self.nzmsec, self.nvhdr, self.norid, self.nevid, self.npts, self.internal4, self.nwfid, self.nxsize, self.nysize, self.unused8, self.iftype, self.idep, self.iztype, self.unused9, self.iinst, self.istreg, self.ievreg, self.ievtyp, self.iqual, self.isynth, self.imagtyp, self.imagsrc, self.unused10, self.unused11, self.unused12, self.unused13, self.unused14, self.unused15, self.unused16, self.unused17, self.leven, self.lpspol, self.lovrok, self.lcalda, self.unused18 = _sacIntNull * np.ones((40, ), dtype = int)
+        self.delta, self.depmin, self.depmax, self.scale, self.odelta,self.b, self.e, self.o, self.a, self.internal1, self.t0, self.t1, self.t2, self.t3, self.t4, self.t5, self.t6, self.t7, self.t8, self.t9, self.f, self.resp0, self.resp1, self.resp2, self.resp3, self.resp4, self.resp5, self.resp6, self.resp7, self.resp8, self.resp9, self.stla, self.stlo, self.stel, self.stdp, self.evla, self.evlo, self.evel, self.evdp, self.mag, self.user0, self.user1, self.user2, self.user3, self.user4, self.user5, self.user6, self.user7, self.user8, self.user9, self.dist, self.az, self.baz, self.gcarc, self.internal2, self.internal3, self.depmen, self.cmpaz, self.cmpinc, self.xminimum, self.xmaximum, self.yminimum, self.ymaximum, self.unused1, self.unused2, self.unused3, self.unused4, self.unused5, self.unused6, self.unused7 = _sacRealNull * np.ones((70, ), dtype = np.float)
+        self.nzyear, self.nzjday, self.nzhour, self.nzmin, self.nzsec, self.nzmsec, self.nvhdr, self.norid, self.nevid, self.npts, self.internal4, self.nwfid, self.nxsize, self.nysize, self.unused8, self.iftype, self.idep, self.iztype, self.unused9, self.iinst, self.istreg, self.ievreg, self.ievtyp, self.iqual, self.isynth, self.imagtyp, self.imagsrc, self.unused10, self.unused11, self.unused12, self.unused13, self.unused14, self.unused15, self.unused16, self.unused17, self.leven, self.lpspol, self.lovrok, self.lcalda, self.unused18 = _sacIntNull * np.ones((40, ), dtype = np.int)
         # characters
         strNull = list(range(23))
         for i in range(23):
@@ -125,12 +125,12 @@ class SAC:
         rem = self.npts % 5
         loop = int((self.npts - rem) / 5)
         for i in range(loop):
-            fo.write(str(format(data[i * 5], ">15")) + str(format(data[i * 5 + 1], ">15")) + \
-                     str(format(data[i * 5 + 2], ">15")) + str(format(data[i * 5 + 3], ">15")) + \
-                     str(format(data[i * 5 + 4], ">15")) + '\n')
+            fo.write(str(format(data[i * 5], ">15.8f")) + str(format(data[i * 5 + 1], ">15.8f")) + \
+                     str(format(data[i * 5 + 2], ">15.8f")) + str(format(data[i * 5 + 3], ">15.8f")) + \
+                     str(format(data[i * 5 + 4], ">15.8f")) + '\n')
         if (rem != 0):
             for j in range(rem):
-                fo.write(str(format(data[5 * loop + j], ">15")))
+                fo.write(str(format(data[5 * loop + j], ">15.8f")))
         
                
         fo.close()
