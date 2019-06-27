@@ -51,7 +51,7 @@ def readCSMNC(fileName):
     evnm = tmp2[5]
     # origin time
     ot = str(2) + tmp2[1]
-    nzyear = int(ot[0:4]); mon = int(ot[4:6]); day = int(ot[6:8])
+    nzyear = int(ot[0:5]); mon = int(ot[4:6]); day = int(ot[6:8])
     nzhour = int(ot[8:10]); nzmin = int(ot[10:12]); nzsec = int(ot[12:])
     nzjday = ymd2jday(nzyear, mon, day)
     nzmsec = 0
